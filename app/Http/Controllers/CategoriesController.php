@@ -17,7 +17,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $cat = categories::select('id','name_'.app()->getLocale() . ' as name')->get();
-
+        return $this->getCurrent();
         return response()->json([$cat]);
     }
 
@@ -37,17 +37,23 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecategoriesRequest $request)
+    public function changeStatus(request $request)
     {
-        //
+        $category = categories::select()->find($request->id);
+        if(!$category)
+            return $this->returnData('001','this category not exist');
+
+        return $this->returnData('category',$category);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(categories $categories)
+    public function changStatus(request $request)
     {
-        //
+        categories::where('id',$request -> id) -> update(['status' => $request -> active]);
+
+        return $this -> returnSuccess('002','the status has been changed');
     }
 
     /**

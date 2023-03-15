@@ -1,12 +1,15 @@
 <?php
 namespace App\Traits;
+
+use App\Models\categories;
+
 /**
  *
  */
 trait GeneralTrats
 {
 
-    public function getCurrent(Type $var = null)
+    public function getCurrent()
     {
         return app()->getLocale();
     }
