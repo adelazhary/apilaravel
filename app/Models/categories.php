@@ -15,7 +15,8 @@ class categories extends Model
         'name_ar',
         'name_en',
         'creat_at',
-        'updated_at'
+        'updated_at',
+        'status',
     ];
 }
 
