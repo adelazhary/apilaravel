@@ -17,7 +17,9 @@ class CategoriesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name_en' => fake()->name(),
+            'name_ar' => fake()->name(),
+
         ];
     }
 }

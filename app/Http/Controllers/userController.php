@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categories;
-use App\Http\Requests\StorecategoriesRequest;
-use App\Http\Requests\UpdatecategoriesRequest;
+use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class userController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $cat = categories::select('id','name_'.app()->getLocale() . ' as name')->get();
-
-        return response()->json([$cat]);
+        //
     }
 
     /**
@@ -29,7 +25,7 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecategoriesRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -37,7 +33,7 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(categories $categories)
+    public function show(string $id)
     {
         //
     }
@@ -45,7 +41,7 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(categories $categories)
+    public function edit(string $id)
     {
         //
     }
@@ -53,7 +49,7 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecategoriesRequest $request, categories $categories)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -61,7 +57,7 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(categories $categories)
+    public function destroy(string $id)
     {
         //
     }

@@ -15,6 +15,12 @@ class checlang
      */
     public function handle(Request $request, Closure $next): Response
     {
+        app()->setlocale('ar');
+
+        if (isset($request->lang) && $request->lang == 'en') {
+             app()->setlocale('en');
+        }
+
         return $next($request);
     }
 }

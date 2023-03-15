@@ -15,8 +15,15 @@ class checkpassword
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request()->checkpassword == app()->getLocale()) {
-            # code...
+        // if ($request->api_Password == env('API_PASSWOR','123123')) {
+
+        //     return response()->json(['message' => "unuthenticated"]);
+
+        // }
+        if ($request->api_password !== env('API_PASSWOR',123123)) {
+
+            return response()->json(['message'=>"unuthenticated"]);
+
         }
         return $next($request);
     }
