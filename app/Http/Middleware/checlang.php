@@ -17,7 +17,7 @@ class checlang
     {
         app()->setlocale('ar');
 
-        if (isset($request->lang) && $request->lang == 'en') {
+        if ( isset($request->lang) && $request->lang == 'en') {
              app()->setlocale('en');
         }
 

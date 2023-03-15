@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\categories;
 use App\Http\Requests\StorecategoriesRequest;
 use App\Http\Requests\UpdatecategoriesRequest;
+use App\Traits\GeneralTrats;
+use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
+    use GeneralTrats;
     /**
      * Display a listing of the resource.
      */
@@ -21,9 +24,14 @@ class CategoriesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function getCategori(Request $request)
     {
-        //
+        $cat = categories::select()->find($request -> id);
+
+        if(!$cat)
+            return $this->returnError('001','not found');
+
+        return $this->returnData('Category',$cat);
     }
 
     /**

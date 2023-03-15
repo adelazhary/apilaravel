@@ -20,7 +20,7 @@ class checkpassword
         //     return response()->json(['message' => "unuthenticated"]);
 
         // }
-        if ($request->api_password !== env('API_PASSWOR',123123)) {
+        if ($request->api_password !== env('API_PASSWOR','123123')) {
 
             return response()->json(['message'=>"unuthenticated"]);
 
