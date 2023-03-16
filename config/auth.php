@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Admin;
+
 return [
 
     /*
@@ -40,6 +42,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'user-api' => [
+            'driver' => 'jwt',
+            'provider' => 'admins',
+        ],
+
+        'admin-api' => [
+            'driver' => 'jwt',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -65,10 +77,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'table' => Admin::class,
+        ],
     ],
 
     /*

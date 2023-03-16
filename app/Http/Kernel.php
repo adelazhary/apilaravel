@@ -2,8 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\checkpassword;
 use App\Http\Middleware\checlang;
+use App\Models\Admin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,5 +69,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'checkpassword' => checkpassword::class,
         'changlang' => checlang::class,
+        'chekadmin' => CheckAdmin::class,
     ];
 }
